@@ -47,6 +47,19 @@ def displayLetters(lettersGuessed):
     for l in lettersGuessed:
         displayedLetters += l + " "
     return displayedLetters
+
+def getInput(wordToGuess, lettersGuessed):
+    while 1:
+        guess = input("Please guess a letter or the word: ")
+        guess = guess.lower()
+        if len(guess) == 1 and guess not in lettersGuessed:
+            lettersGuessed.append(guess)
+        else if len(guess) == 1 && guess in lettersGuessed:
+            print("You've already guessed that letter! Try again")
+            continue
+        break
+    return guess
+    
 def runGame():
     lettersGuessed = []
     wordToGuess = chooseWord(loadWords())
@@ -60,7 +73,11 @@ def runGame():
         print("Word to guess:", displayWord(wordToGuess,lettersGuessed))
         print("Letters guessed:", displayLetters(lettersGuessed))
         print()
-        input("Please guess a letter or the word")
+        currentGuess = getInput(wordToGuess, lettersGuessed)
+        if currentGuess is "quit":
+            break
+        
+    print("Goodbye!")
 runGame()
     
 
