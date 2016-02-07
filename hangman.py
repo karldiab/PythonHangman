@@ -54,7 +54,7 @@ def getInput(wordToGuess, lettersGuessed):
         guess = guess.lower()
         if len(guess) == 1 and guess not in lettersGuessed:
             lettersGuessed.append(guess)
-        else if len(guess) == 1 && guess in lettersGuessed:
+        elif len(guess) == 1 and guess in lettersGuessed:
             print("You've already guessed that letter! Try again")
             continue
         break
@@ -63,6 +63,7 @@ def getInput(wordToGuess, lettersGuessed):
 def runGame():
     lettersGuessed = []
     wordToGuess = chooseWord(loadWords())
+    guessesLeft = NUMOFGUESSES
     print()
     print("Welcome to hangman! I'm thinking of a", len(wordToGuess), "letter word." 
           " To win the game, you must guess the word correctly. You can either guess"
@@ -74,7 +75,8 @@ def runGame():
         print("Letters guessed:", displayLetters(lettersGuessed))
         print()
         currentGuess = getInput(wordToGuess, lettersGuessed)
-        if currentGuess is "quit":
+        if currentGuess == "quit":
+            print("Yup got it")
             break
         
     print("Goodbye!")
