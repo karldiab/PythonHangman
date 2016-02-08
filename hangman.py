@@ -99,11 +99,12 @@ def checkForGameOver(wordToGuess, guess):
     print("You win!!! The word was", guess)
     return 1
 def runGame():
+    global wordsList
     global guessesLeft
+    wordToGuess = chooseWord(wordsList)
     guessesLeft = NUMOFGUESSES
     global lettersGuessed
     lettersGuessed = []
-    wordToGuess = chooseWord(loadWords())
     print()
     print("Welcome to hangman! I'm thinking of a", len(wordToGuess), "letter word." 
           " To win the game, you must guess the word correctly. You can either guess"
@@ -129,6 +130,7 @@ def runGame():
             else:
                 break
     print("Goodbye!")
+wordsList = loadWords()
 runGame()
     
 
