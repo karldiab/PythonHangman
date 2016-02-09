@@ -96,7 +96,7 @@ def checkForGameOver(wordToGuess, guess):
     for c in wordToGuess:
         if c not in lettersGuessed:
             return 0
-    print("You win!!! The word was", guess)
+    print("You win!!! The word was", wordToGuess)
     return 1
 def runGame():
     global wordsList
